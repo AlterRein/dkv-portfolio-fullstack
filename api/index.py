@@ -13,6 +13,9 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Vercel filesystem is read-only except for /tmp
 # We check if we are on Vercel by looking for VERCEL environment variable
 if os.environ.get("VERCEL"):
