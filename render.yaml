@@ -1,0 +1,24 @@
+services:
+  # 1. Backend Service (FastAPI)
+  - type: web
+    name: dkv-portfolio-backend
+    env: python
+    rootDir: backend
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "uvicorn main:app --host 0.0.0.0 --port $PORT"
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0
+
+  # 2. Frontend Service (Next.js)
+  - type: web
+    name: dkv-portfolio-frontend
+    env: node
+    buildCommand: "npm install && npm run build"
+    startCommand: "npm run start"
+    envVars:
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: dkv-portfolio-backend
+          envVarKey: RENDER_EXTERNAL_URL
