@@ -32,12 +32,12 @@ export default function ContactSection({ isActive }: ContactSectionProps) {
   };
 
   return (
-    <section className="relative flex md:items-center p5-stripes w-full h-full min-h-screen overflow-y-auto overflow-x-hidden">
+    <section className="relative flex flex-col p5-stripes w-screen shrink-0 h-screen overflow-y-auto overflow-x-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <motion.div initial={{ opacity: 0 }} animate={isActive ? { opacity: 0.03 } : { opacity: 0 }} className="absolute -right-10 top-1/2 -translate-y-1/2 font-heading text-[18vw] font-black leading-none select-none text-p5-white">SAY HI</motion.div>
       </div>
 
-      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 lg:py-12 min-h-screen flex items-center">
+      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 pt-32 pb-24 lg:py-24 min-h-full flex flex-col justify-start md:justify-center">
         <motion.div variants={cVar} initial="hidden" animate={isActive ? "visible" : "hidden"} className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-center w-full">
           {/* Left: Info */}
           <div>

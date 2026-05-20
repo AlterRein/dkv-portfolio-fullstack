@@ -29,13 +29,13 @@ const iVar = {
 
 export default function AboutSection({ isActive }: AboutSectionProps) {
   return (
-    <section className="relative flex md:items-center p5-stripes w-full h-full min-h-screen overflow-y-auto overflow-x-hidden">
+    <section className="relative flex flex-col p5-stripes w-screen shrink-0 h-screen overflow-y-auto overflow-x-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-[40%] w-[40vw] h-full bg-p5-blue/[0.02]" style={{ clipPath: "polygon(10% 0%,100% 0%,90% 100%,0% 100%)" }} />
         <motion.div initial={{ opacity: 0 }} animate={isActive ? { opacity: 0.03 } : { opacity: 0 }} transition={{ duration: 1 }} className="absolute -left-20 top-1/2 -translate-y-1/2 font-heading text-[18vw] font-black leading-none select-none text-p5-white" style={{ writingMode: "vertical-lr" }}>ABOUT</motion.div>
       </div>
 
-      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 lg:py-12 min-h-screen flex items-center">
+      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 pt-32 pb-24 lg:py-24 min-h-full flex flex-col justify-start md:justify-center">
         <motion.div variants={cVar} initial="hidden" animate={isActive ? "visible" : "hidden"} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center max-w-7xl mx-auto w-full">
           {/* Photo */}
           <div className="lg:col-span-4">

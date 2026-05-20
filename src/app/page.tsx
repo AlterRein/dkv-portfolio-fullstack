@@ -36,10 +36,34 @@ export default function Home() {
     let scrollTimeout: ReturnType<typeof setTimeout>;
 
     const handleWheel = (e: WheelEvent) => {
-      e.preventDefault();
       if (isScrolling) return;
 
-      accumulatedDelta += e.deltaY;
+      // Allow native vertical scroll if we are scrolling vertically inside a scrollable container
+      const isVerticalScroll = Math.abs(e.deltaY) > Math.abs(e.deltaX);
+      if (isVerticalScroll) {
+        // Find the scrollable section
+        const scrollableElements = document.querySelectorAll('.overflow-y-auto');
+        for (const el of scrollableElements) {
+          if (el.contains(e.target as Node)) {
+            // Check if it's actually scrollable and not at the boundaries
+            const isScrollable = el.scrollHeight > el.clientHeight;
+            const isAtTop = el.scrollTop === 0 && e.deltaY < 0;
+            const isAtBottom = el.scrollTop + el.clientHeight >= el.scrollHeight - 1 && e.deltaY > 0;
+            
+            if (isScrollable && !isAtTop && !isAtBottom) {
+              return; // Let native vertical scroll happen
+            }
+          }
+        }
+      }
+
+      // If we reach here, it's either a horizontal swipe or we are at the scroll boundaries.
+      // We prevent default to stop page bounce and handle section transition.
+      e.preventDefault();
+
+      // Accumulate delta for section transition
+      const delta = isVerticalScroll ? e.deltaY : e.deltaX;
+      accumulatedDelta += delta;
 
       clearTimeout(scrollTimeout);
       scrollTimeout = setTimeout(() => {

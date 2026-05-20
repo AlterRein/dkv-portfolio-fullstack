@@ -40,7 +40,7 @@ export default function HomeSection({
   };
 
   return (
-    <section className="relative flex items-center justify-center p5-stripes w-full h-full min-h-screen overflow-y-auto overflow-x-hidden">
+    <section className="relative flex items-center justify-center p5-stripes w-screen shrink-0 h-screen overflow-y-auto overflow-x-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         {/* Large diagonal slash */}
