@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* ========================================
+   DKV PORTFOLIO — PERSONA 5 STYLE
+   Colors: White, Black, Sky Blue
+   ======================================== */
+
+/* --- CSS Custom Properties --- */
+@theme {
+  --color-p5-black: #0a0a0a;
+  --color-p5-white: #f5f5f5;
+  --color-p5-blue: #5bc0eb;
+  --color-p5-blue-dark: #3a9fc7;
+  --color-p5-blue-light: #a8e0f5;
+  --color-p5-gray: #2a2a2a;
+  --color-p5-gray-light: #e0e0e0;
+  --color-p5-gray-mid: #888888;
+
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+}
+
+/* --- Base Styles --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow: hidden;
+  scroll-behavior: auto;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--color-p5-black);
+  color: var(--color-p5-white);
+  overflow: hidden;
+  cursor: default;
+}
+
+::selection {
+  background-color: var(--color-p5-blue);
+  color: var(--color-p5-black);
+}
+
+/* --- Persona 5 Diagonal Stripe Pattern --- */
+.p5-stripes {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 8px,
+    rgba(91, 192, 235, 0.03) 8px,
+    rgba(91, 192, 235, 0.03) 16px
+  );
+}
+
+/* --- Persona 5 Cut-in Effect (angular clip) --- */
+.p5-cut {
+  clip-path: polygon(3% 0%, 100% 0%, 97% 100%, 0% 100%);
+}
+
+.p5-cut-reverse {
+  clip-path: polygon(0% 0%, 97% 0%, 100% 100%, 3% 100%);
+}
+
+/* --- Skewed decorative line --- */
+.p5-line {
+  position: relative;
+}
+
+.p5-line::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: var(--color-p5-blue);
+  transform: skewX(-20deg);
+}
+
+/* --- Navigation dot active --- */
+.nav-dot {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.nav-dot.active {
+  width: 32px;
+  border-radius: 4px;
+  background-color: var(--color-p5-blue);
+}
+
+/* --- Custom Scrollbar (hidden but functional) --- */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* --- Placeholder Image Style --- */
+.placeholder-img {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.placeholder-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 20px,
+    rgba(91, 192, 235, 0.08) 20px,
+    rgba(91, 192, 235, 0.08) 40px
+  );
+}
+
+/* --- Glitch text effect --- */
+@keyframes glitch {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+}
+
+.glitch-hover:hover {
+  animation: glitch 0.3s ease-in-out;
+}
+
+/* --- Persona 5 menu slash --- */
+.menu-slash {
+  position: relative;
+  display: inline-block;
+  padding: 0 1rem;
+}
+
+.menu-slash::before {
+  content: '//';
+  position: absolute;
+  left: -0.5rem;
+  color: var(--color-p5-blue);
+  font-weight: 700;
+  font-family: var(--font-heading);
+}
+
+/* --- Form Styles --- */
+input, textarea {
+  background: transparent;
+  border: 2px solid rgba(91, 192, 235, 0.2);
+  color: var(--color-p5-white);
+  font-family: var(--font-body);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus, textarea:focus {
+  border-color: var(--color-p5-blue);
+}
+
+input::placeholder, textarea::placeholder {
+  color: var(--color-p5-gray-mid);
+}
+
+/* --- Utility Animations --- */
+@keyframes slideInFromRight {
+  from { transform: translateX(60px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes drawLine {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* --- Section Base Styles (for horizontal scroll via transform) --- */
+section {
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
