@@ -37,7 +37,7 @@ export default function ContactSection({ isActive }: ContactSectionProps) {
         <motion.div initial={{ opacity: 0 }} animate={isActive ? { opacity: 0.03 } : { opacity: 0 }} className="absolute -right-10 top-1/2 -translate-y-1/2 font-heading text-[18vw] font-black leading-none select-none text-p5-white">SAY HI</motion.div>
       </div>
 
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-24 lg:py-12 min-h-screen flex items-center">
+      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 lg:py-12 min-h-screen flex items-center">
         <motion.div variants={cVar} initial="hidden" animate={isActive ? "visible" : "hidden"} className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-6xl mx-auto items-center w-full">
           {/* Left: Info */}
           <div>
@@ -46,7 +46,7 @@ export default function ContactSection({ isActive }: ContactSectionProps) {
                 <span className="w-6 h-[2px] bg-p5-blue" />Get in Touch
               </span>
             </motion.div>
-            <motion.h2 variants={iVar} className="font-heading text-3xl md:text-5xl font-black mb-4 leading-tight">
+            <motion.h2 variants={iVar} className="font-heading text-2xl sm:text-3xl md:text-5xl font-black mb-4 leading-tight">
               Mari <span className="text-p5-blue">Berkolaborasi.</span>
             </motion.h2>
             <motion.p variants={iVar} className="text-p5-gray-light/70 text-sm leading-relaxed mb-6 max-w-md">
@@ -78,7 +78,7 @@ export default function ContactSection({ isActive }: ContactSectionProps) {
 
           {/* Right: Form */}
           <motion.div variants={iVar}>
-            <div className="border border-p5-blue/10 p-8 md:p-10" style={{ clipPath: "polygon(0% 0%,98% 0%,100% 2%,100% 100%,2% 100%,0% 98%)" }}>
+            <div className="border border-p5-blue/10 p-5 sm:p-8 md:p-10" style={{ clipPath: "polygon(0% 0%,98% 0%,100% 2%,100% 100%,2% 100%,0% 98%)" }}>
               <h3 className="font-heading text-lg font-bold tracking-wide uppercase mb-6">
                 <span className="text-p5-blue">//</span> Kirim Pesan
               </h3>
@@ -93,7 +93,7 @@ export default function ContactSection({ isActive }: ContactSectionProps) {
                 </div>
                 <div>
                   <label className="block text-[10px] font-heading tracking-[0.3em] uppercase text-p5-gray-mid mb-2">Pesan</label>
-                  <textarea name="message" value={formState.message} onChange={handleChange} placeholder="Ceritakan tentang projek Anda..." rows={4} className="w-full px-4 py-3 text-sm resize-none" style={{ clipPath: "polygon(0% 0%,99% 0%,100% 4%,100% 100%,1% 100%,0% 96%)" }} />
+                  <textarea name="message" value={formState.message} onChange={handleChange} placeholder="Ceritakan tentang projek Anda..." rows={3} className="w-full px-4 py-3 text-sm resize-none" style={{ clipPath: "polygon(0% 0%,99% 0%,100% 4%,100% 100%,1% 100%,0% 96%)" }} />
                 </div>
                 <button type="submit" className="group relative w-full py-4 bg-p5-blue text-p5-black font-heading font-bold text-sm tracking-[0.15em] uppercase overflow-hidden transition-all duration-300" style={{ clipPath: "polygon(0% 0%,100% 0%,97% 100%,3% 100%)" }}>
                   <span className="relative z-10 flex items-center justify-center gap-2">

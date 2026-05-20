@@ -77,7 +77,7 @@ export default function ProjectSection({ isActive }: ProjectSectionProps) {
         </motion.div>
       </div>
 
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-24 lg:py-12 min-h-screen flex flex-col justify-center">
+      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-20 py-16 sm:py-24 lg:py-12 min-h-screen flex flex-col justify-center">
         <motion.div variants={cVar} initial="hidden" animate={isActive ? "visible" : "hidden"}>
           {/* Header */}
           <motion.div variants={iVar} className="mb-4 flex items-end justify-between">
@@ -85,7 +85,7 @@ export default function ProjectSection({ isActive }: ProjectSectionProps) {
               <span className="inline-flex items-center gap-3 text-p5-blue font-heading text-xs tracking-[0.3em] uppercase font-medium mb-2 block">
                 <span className="w-6 h-[2px] bg-p5-blue" />Portfolio
               </span>
-              <h2 className="font-heading text-3xl md:text-5xl font-black leading-tight">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-5xl font-black leading-tight">
                 Karya <span className="text-p5-blue">Terpilih</span>
               </h2>
             </div>
@@ -97,7 +97,7 @@ export default function ProjectSection({ isActive }: ProjectSectionProps) {
           </motion.div>
 
           {/* Project Grid — fixed height cards to fit in viewport */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 max-w-7xl mt-8">
             {projects.map((project, i) => (
               <motion.div
                 key={project.id}
@@ -110,7 +110,7 @@ export default function ProjectSection({ isActive }: ProjectSectionProps) {
                 <div className="relative overflow-hidden border border-p5-blue/10 transition-all duration-500 hover:border-p5-blue/30"
                   style={{ clipPath: "polygon(0% 0%,97% 0%,100% 3%,100% 100%,3% 100%,0% 97%)" }}>
                   {/* Image Placeholder — uniform height */}
-                  <div className={`h-64 lg:h-[50vh] w-full bg-gradient-to-br ${project.color} placeholder-img relative`}>
+                  <div className={`h-44 sm:h-64 lg:h-[50vh] w-full bg-gradient-to-br ${project.color} placeholder-img relative`}>
                     <div className="relative z-10 flex flex-col items-center justify-center h-full p-4">
                       {/* Corner decorations */}
                       <div className="absolute inset-0 opacity-20">

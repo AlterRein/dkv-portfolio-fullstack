@@ -64,7 +64,7 @@ export default function HomeSection({
           initial={{ opacity: 0 }}
           animate={isLoaded ? { opacity: 1 } : {}}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute top-8 left-8 text-p5-blue/30 font-heading text-xs tracking-[0.3em] uppercase"
+          className="absolute top-8 left-8 hidden sm:block text-p5-blue/30 font-heading text-xs tracking-[0.3em] uppercase"
         >
           Portfolio / 2025
         </motion.div>
@@ -73,7 +73,7 @@ export default function HomeSection({
           initial={{ opacity: 0 }}
           animate={isLoaded ? { opacity: 1 } : {}}
           transition={{ delay: 1.5, duration: 0.5 }}
-          className="absolute bottom-12 right-8 text-p5-blue/30 font-heading text-xs tracking-[0.3em] uppercase"
+          className="absolute bottom-12 right-8 hidden sm:block text-p5-blue/30 font-heading text-xs tracking-[0.3em] uppercase"
         >
           Scroll → Explore
         </motion.div>
@@ -90,7 +90,7 @@ export default function HomeSection({
       </div>
 
       {/* Main content */}
-      <div className="relative z-10 px-8 md:px-16 lg:px-24 max-w-5xl py-24 lg:py-8 w-full flex flex-col justify-center min-h-screen">
+      <div className="relative z-10 px-5 sm:px-8 md:px-16 lg:px-24 max-w-5xl py-24 lg:py-8 w-full flex flex-col justify-center min-h-screen">
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -111,7 +111,7 @@ export default function HomeSection({
           <div className="overflow-hidden mb-2">
             <motion.h1
               variants={lineVariants}
-              className="font-heading text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight"
+              className="font-heading text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight"
             >
               <span className="text-p5-white">AZIZ</span>
             </motion.h1>
@@ -119,7 +119,7 @@ export default function HomeSection({
           <div className="overflow-hidden mb-2">
             <motion.h1
               variants={lineVariants}
-              className="font-heading text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight"
+              className="font-heading text-4xl sm:text-6xl md:text-8xl lg:text-9xl font-black leading-[0.9] tracking-tight"
             >
               <span className="text-p5-blue">KRIS</span>
               <span className="text-p5-white opacity-20">—</span>
@@ -138,7 +138,7 @@ export default function HomeSection({
           <motion.div variants={lineVariants}>
             <button
               onClick={onCTAClick}
-              className="group relative inline-flex items-center gap-3 px-8 py-4 bg-p5-blue text-p5-black font-heading font-bold text-sm tracking-[0.15em] uppercase overflow-hidden transition-all duration-300 hover:gap-5"
+              className="group relative inline-flex items-center gap-3 px-6 py-3 sm:px-8 sm:py-4 bg-p5-blue text-p5-black font-heading font-bold text-sm tracking-[0.15em] uppercase overflow-hidden transition-all duration-300 hover:gap-5"
               style={{ clipPath: "polygon(0% 0%, 100% 0%, 96% 100%, 4% 100%)" }}
             >
               <span className="relative z-10">Lihat Karya</span>

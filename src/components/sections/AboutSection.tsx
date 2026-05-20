@@ -35,7 +35,7 @@ export default function AboutSection({ isActive }: AboutSectionProps) {
         <motion.div initial={{ opacity: 0 }} animate={isActive ? { opacity: 0.03 } : { opacity: 0 }} transition={{ duration: 1 }} className="absolute -left-20 top-1/2 -translate-y-1/2 font-heading text-[18vw] font-black leading-none select-none text-p5-white" style={{ writingMode: "vertical-lr" }}>ABOUT</motion.div>
       </div>
 
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-24 py-24 lg:py-12 min-h-screen flex items-center">
+      <div className="relative z-10 w-full px-5 sm:px-8 md:px-16 lg:px-24 py-16 sm:py-24 lg:py-12 min-h-screen flex items-center">
         <motion.div variants={cVar} initial="hidden" animate={isActive ? "visible" : "hidden"} className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center max-w-7xl mx-auto w-full">
           {/* Photo */}
           <div className="lg:col-span-4">
@@ -44,7 +44,7 @@ export default function AboutSection({ isActive }: AboutSectionProps) {
                 <span className="w-6 h-[2px] bg-p5-blue" />Perkenalan
               </span>
             </motion.div>
-            <motion.div variants={iVar} className="relative w-full max-w-[260px] aspect-[3/4] bg-p5-gray placeholder-img" style={{ clipPath: "polygon(0% 0%,95% 0%,100% 5%,100% 100%,5% 100%,0% 95%)" }}>
+            <motion.div variants={iVar} className="relative w-full max-w-[180px] sm:max-w-[260px] aspect-[3/4] bg-p5-gray placeholder-img" style={{ clipPath: "polygon(0% 0%,95% 0%,100% 5%,100% 100%,5% 100%,0% 95%)" }}>
               <div className="relative z-10 flex flex-col items-center justify-center text-center p-4 h-full">
                 <div className="w-16 h-16 rounded-full border-2 border-p5-blue/40 flex items-center justify-center mb-3">
                   <svg className="w-7 h-7 text-p5-blue/60" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -61,7 +61,7 @@ export default function AboutSection({ isActive }: AboutSectionProps) {
 
           {/* Bio */}
           <div className="lg:col-span-4">
-            <motion.h2 variants={iVar} className="font-heading text-3xl md:text-4xl font-black mb-4 leading-tight">
+            <motion.h2 variants={iVar} className="font-heading text-2xl sm:text-3xl md:text-4xl font-black mb-4 leading-tight">
               Saya Percaya<br /><span className="text-p5-blue">Desain Bercerita.</span>
             </motion.h2>
             <motion.div variants={iVar} className="space-y-3 mb-6">
