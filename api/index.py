@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import sqlite3
+import os
 from typing import Any, Dict, List
 
 app = FastAPI(title="DKV Portfolio API")
@@ -12,10 +13,12 @@ app.add_middleware(
     allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-DB_FILE = "portfolio.db"
+# Vercel filesystem is read-only except for /tmp
+# We check if we are on Vercel by looking for VERCEL environment variable
+if os.environ.get("VERCEL"):
+    DB_FILE = "/tmp/portfolio.db"
+else:
+    DB_FILE = "portfolio.db"
 
 def get_db_connection() -> sqlite3.Connection:
     conn = sqlite3.connect(DB_FILE)
