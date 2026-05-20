@@ -23,28 +23,29 @@ if os.environ.get("VERCEL"):
 else:
     DB_FILE = "portfolio.db"
 
+db_initialized = False
+
 def get_db_connection() -> sqlite3.Connection:
+    global db_initialized
+    if not db_initialized:
+        # Buat tabel jika belum ada (lazy initialization)
+        init_conn = sqlite3.connect(DB_FILE)
+        init_conn.execute('''
+            CREATE TABLE IF NOT EXISTS projects (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                judul_karya TEXT NOT NULL,
+                kategori TEXT NOT NULL,
+                deskripsi TEXT NOT NULL,
+                link_gambar TEXT NOT NULL
+            )
+        ''')
+        init_conn.commit()
+        init_conn.close()
+        db_initialized = True
+
     conn = sqlite3.connect(DB_FILE)
     conn.row_factory = sqlite3.Row
     return conn
-
-# Fungsi untuk membuat tabel jika belum ada
-def init_db() -> None:
-    conn = get_db_connection()
-    conn.execute('''
-        CREATE TABLE IF NOT EXISTS projects (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            judul_karya TEXT NOT NULL,
-            kategori TEXT NOT NULL,
-            deskripsi TEXT NOT NULL,
-            link_gambar TEXT NOT NULL
-        )
-    ''')
-    conn.commit()
-    conn.close()
-
-# Inisialisasi database saat script dijalankan
-init_db()
 
 # Skema data (Pydantic Model) untuk input dari User
 class ProjectCreate(BaseModel):
